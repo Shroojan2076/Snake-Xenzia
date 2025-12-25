@@ -9,14 +9,14 @@ Snake Xenzia recreates the traditional Snake gameplay loop: continuous movement,
 The project is intended as a learning-oriented but well-architected implementation, suitable for studying event-driven programming, basic game loops, and object-oriented design in Python.
 
 # Controls
-
+````
 Key    |     	Action
 -------+-------------------------
- ↑	   |    Move snake upward
- ↓	   |    Move snake downward
- ←	   |    Move snake left
+ ↑	    |    Move snake upward
+ ↓	    |    Move snake downward
+ ←	    |    Move snake left
  →     |    Move snake right
-
+````
 -- >  Direct reversal of direction is intentionally disallowed.
 
 # Installation
