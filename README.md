@@ -12,9 +12,9 @@ The project is intended as a learning-oriented but well-architected implementati
 ````
 Key    |     	Action
 -------+-------------------------
- ↑	    |    Move snake upward
- ↓	    |    Move snake downward
- ←	    |    Move snake left
+ ↑	   |    Move snake upward
+ ↓	   |    Move snake downward
+ ←	   |    Move snake left
  →     |    Move snake right
 ````
 -- >  Direct reversal of direction is intentionally disallowed.
