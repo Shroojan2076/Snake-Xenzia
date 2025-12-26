@@ -35,26 +35,30 @@ scr.onkey(snake.right, 'Right')
 
 
 game_on = True
-while game_on:
-    scr.update()
-    time.sleep(0.1)
-    snake.move()
+try:
+    while game_on:
+        scr.update()
+        time.sleep(0.1)
+        snake.move()
 
-    if snake.head.distance(food) <= 15:
-        food.refresh()
-        score.inc_score()
-        snake.extend()
-    
-    if snake.head.xcor() <= -395 or snake.head.xcor() >= 395 or snake.head.ycor() <= -395 or snake.head.ycor() >= 395:
-        game_on = False
-        score.game_over()
-    
-    for block in snake.blocks[1:]:
-        if snake.head.distance(block) <= 10:
+        if snake.head.distance(food) <= 15:
+            food.refresh()
+            score.inc_score()
+            snake.extend()
+        
+        if snake.head.xcor() <= -395 or snake.head.xcor() >= 395 or snake.head.ycor() <= -395 or snake.head.ycor() >= 395:
             game_on = False
             score.game_over()
+        
+        for block in snake.blocks[1:]:
+            if snake.head.distance(block) <= 10:
+                game_on = False
+                score.game_over()
+    scr.exitonclick()
 
-scr.exitonclick()
+except:
+    print('Game Closed.')
+
 
 
 
