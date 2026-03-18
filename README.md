@@ -75,13 +75,13 @@ git clone https://github.com/your-username/Snake-Xenzia.git
 ```
 
 ### 2. Navigate into the folder:
-
+```
 cd Snake-Xenzia
-
+```
 ### 3. Run the game:
-
+```
 python main.py
-
+```
 
 ## Preview
 
