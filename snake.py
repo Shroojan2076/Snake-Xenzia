@@ -24,22 +24,6 @@ class Snake:
         self.head = self.blocks[0]
         self.head.setheading(0)
 
-    # Creates the inital 3 - block snake.
-    def create_snake(self):
-        for position in STARTING_POSITIONS:
-            snake = Turtle('square')
-            snake.color('YellowGreen')
-            snake.penup()
-            snake.goto(position)
-            self.blocks.append(snake)
-    
-    # Moves the snake forward by one step.
-    def move(self):
-        for part in range(len(self.blocks)-1, 0, -1):
-            pos = self.blocks[part - 1].pos()
-            self.blocks[part].goto(pos)
-        self.blocks[0].forward(MOVE_DISTANCE)
-
     # Generates the one block whichh is to be added at the end of the snake
     def add_block(self, position):
         snake = Turtle('square')
@@ -47,6 +31,18 @@ class Snake:
         snake.penup()
         snake.goto(position)
         self.blocks.append(snake)
+
+    # Creates the inital 3 - block snake.
+    def create_snake(self):
+        for position in STARTING_POSITIONS:
+            self.add_block(position)
+    
+    # Moves the snake forward by one step.
+    def move(self):
+        for part in range(len(self.blocks)-1, 0, -1):
+            pos = self.blocks[part - 1].pos()
+            self.blocks[part].goto(pos)
+        self.head.forward(MOVE_DISTANCE)
 
     # Extends the snake by adding a new segment at the tail.
     def extend(self):
@@ -71,3 +67,23 @@ class Snake:
     def right(self):
         if self.head.heading() != LEFT:
             self.head.setheading(RIGHT)
+
+    def reset_position(self):
+        for block in self.blocks:
+            block.hideturtle()
+        self.blocks.clear()
+        self.create_snake()
+        self.head = self.blocks[0]
+        self.head.setheading(0)
+        self.move()
+
+    def collision(self, width, height):
+        if self.head.xcor() <= -(width/2 - 5) or self.head.xcor() >= (width/2 - 5) or self.head.ycor() <= -(height/2 - 5) or self.head.ycor() >= (height/2 - 80):
+            return True
+        return False
+        
+    def self_collision(self):
+        for block in self.blocks[1:]:
+                if self.head.distance(block) <= 10:
+                    return True
+        return False

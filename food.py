@@ -22,6 +22,6 @@ class Food(Turtle):
         
     # Moves the food to a new random position within the game area.
     def refresh(self):
-        xcor = random.randint(-350, 350)
-        ycor = random.randint(-350, 350)
+        xcor = random.randint(-350, 300)
+        ycor = random.randint(-350, 330)
         self.goto(xcor, ycor)
